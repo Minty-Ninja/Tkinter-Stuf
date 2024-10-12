@@ -1,0 +1,18 @@
+from tkinter import *
+root = Tk()
+
+#Bg Colour from the screnn
+root.config(background='white')
+root.geometry('3600x800')
+
+#Creating da Labels
+name = Label(root, text="Username", background='blue', font=('Calibri',30)).place(x=750,y=300)
+password = Label(root, text='Password', background='green', font=('Pacifico',30)).place(x=750,y=400)
+
+
+#Text boxes for info
+Username= Entry(root,width=23, background='green', font=('Pacifico',30)).place(x=950, y=300)
+Password= Entry(root,width=25, background='blue', font=('Calibri',30)).place(x=950, y=400)
+
+
+root.mainloop()
