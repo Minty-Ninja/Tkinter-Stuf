@@ -1,0 +1,43 @@
+from tkinter import *
+from tkinter.ttk import *
+from time import strftime
+
+root=Tk()
+root.title("Menu")
+
+#Menu bARR
+MenuBr = Menu(root)
+
+#Adding File Menu and Commandsssss
+File1= Menu(MenuBr, tearoff=0)
+
+#Label File
+MenuBr.add_cascade(label='File', menu=File1)
+File1.add_command(label= 'New File', command=None)
+File1.add_command(label= 'Open File', command=None)
+File1.add_command(label= 'New Folder', command=None)
+File1.add_command(label= 'Open Folder', command=None)
+File1.add_command(label= 'Save', command=None)
+File1.add_separator()
+File1.add_command(label= 'Exit', command=root.destroy)
+
+#Adding Edit Commandsssss
+Edit= Menu(MenuBr, tearoff=0)
+
+#Label File
+MenuBr.add_cascade(label='Edit', menu=Edit)
+Edit.add_command(label= 'Cut', command=None)
+Edit.add_command(label= 'Copy', command=None)
+Edit.add_command(label= 'Paste', command=None)
+Edit.add_command(label= 'Undo', command=None)
+Edit.add_command(label= 'Redo', command=None)
+Edit.add_separator()
+Edit.add_command(label= 'Exit', command=root.destroy)
+
+
+
+root.config(menu=MenuBr)
+
+root.mainloop()
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
