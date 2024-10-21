@@ -41,3 +41,37 @@ root.config(menu=MenuBr)
 root.mainloop()
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+from tkinter import *
+from tkinter.ttk import *
+
+root = Tk()
+root.geometry('3600x800')              
+
+root.config(background = 'Blue')
+
+Mail = Label(root, text = "Email").place(x=200, y=50)
+Password = Label(root, text="Password").place(x=200, y=80)
+
+Food= Label(root, text="Choice of Food?").place(x=750,y=150)
+Drink = Label(root, text='Choice of Beverage?').place(x=750, y=300)
+Dessert= Label(root, text= "Dessert Preference?").place(x=750, y=450)
+
+Button(root, text='Is this Final').place(x=750, y=600)
+
+Email = Entry(root, width=60).place(x=400, y=50)
+pswrd = Entry(root, width=60).place(x=400, y=80)
+
+food= Entry(root, width=50).place(x=300, y=200)
+bvr = Entry(root, width=50).place(x=300, y=350)
+dsrt = Entry(root, width = 50).place(x=300, y=500)
+
+spin= Spinbox(root, from_ = 0, to = 100, width=50).place(x=1000, y=200)
+spin2= Spinbox(root, from_ = 0, to = 100, width=50).place(x=1000, y=350)
+spin3= Spinbox(root, from_ = 0, to = 100, width=50).place(x=1000, y=500)
+
+
+
+root.mainloop()
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
