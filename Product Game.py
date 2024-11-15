@@ -1,29 +1,4 @@
 from tkinter import *
-import random
-from tkinter import messagebox
-
-root=Tk()
-root.title('Product Game')
-
-#Generating UI
-label = Label(root, text='Guess the product of {} and ?'.format(num1))
-label.pack()
-
-b1= Button(root, text='Check?')
-b1.pack()
-
-new_game=Button(root, text='New Game')
-new_game.pack()
-
-En= Entry(root)
-
-
-
-root.mainloop()
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-from tkinter import *
 import tkinter as tk
 import random
 from tkinter import messagebox
@@ -54,7 +29,8 @@ b1.pack()
 def NewGame():
     global num1, num2, result
     num1, num2, result= make()
-    messagebox.showinfo("A random number is {}".format(num2))
+    label.config(text="Guess the prodcut of {} and ?".format(num1))
+    messagebox.showinfo("A random number is {}".format(num1))
     En.delete(0,tk.END)
 
 new_game=Button(root, text='New Game', command=NewGame)
