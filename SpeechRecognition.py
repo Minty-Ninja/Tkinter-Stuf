@@ -11,7 +11,7 @@ root.title("Speech to Text!")
 
 
 def click(): 
-    x= sr.Recognizer #Initialize the speech recognizer
+    x= sr.Recognizer() #Initialize the speech recognizer
     with sr.Microphone() as source: #Sets the source for the microphone
         print("Epack")
         audio = x.listen(source) #Listens from source
