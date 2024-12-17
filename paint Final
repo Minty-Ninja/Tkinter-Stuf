@@ -1,0 +1,80 @@
+from tkinter import *
+from tkinter.colorchooser import askcolor
+
+class PAINTT(object):
+    dps = 5.0
+    dc = "Black"
+    def __init__(self):
+
+        self.root = Tk()
+
+
+        self.pen = Button(self.root, text="pen", command=self.usePen)
+        self.brush= Button(self.root, text="brush", command=self.useBrush)
+        self.color = Button(self.root, text="color", command=self.useCol)
+        self.eraser = Button(self.root, text="eraser", command=self.useEraser)
+        self.slider = Scale(self.root, from_=1, to=10, orient= HORIZONTAL) #MAkes a SLIDERRRR
+        self.canvas = Canvas(self.root, bg="white", width=600, height=600)
+
+        self.pen.grid(row=0, column=0)
+        self.brush.grid(row=0, column=1)
+        self.color.grid(row=0, column=2)
+        self.eraser.grid(row=0, column=3)
+        self.slider.grid(row=0, column=4)
+        self.canvas.grid(row=1, columnspan=5)
+
+        self.setup()
+
+        self.root.mainloop()
+
+
+
+    def setup(self):
+        self.oldx= None 
+        self.oldy= None
+
+        self.linewidth = self.slider.get()
+        self.color = self.dc
+        self.eraseron = False
+        self.activebutton = self.pen
+        self.canvas.bind('<B1-Motion>', self.paint)
+        self.canvas.bind('<ButtonRelease-1>', self.reset)
+
+    def usePen(self):
+        #Activate the pen tool
+        self.activebutton(self.pen)
+
+    def useBrush(self): 
+        self.activebutton(self.brush)
+
+    def useCol(self):
+        self.eraseron = False
+        self.color = askcolor(color = self.color)[1]
+
+    def useEraser(self): 
+        self.activebutton(self.eraser, eraser_mode= True)
+
+    def activebutton(self, button, eraser_mode=False):
+        self.active_button.config(relief = RAISED)
+        button.config(relief = SUNKEN)
+        self.active_button = button
+        self.eraseron = eraser_mode
+
+    def paint(self, event): #Drawing on the Canvas based on mouse movement
+        self.line_width = self.slider.get()
+        paint_color = "white" if self.eraseron else self.color
+        if self.oldx and self.oldy:
+            self.canvas.create_line(self.oldx, self.oldy, event.x, event.y, width=self.line_width, fill = paint_color
+            , capstyle=ROUND, smooth = TRUE, splinesteps = 40)
+
+        #Updating old x and y with current position for continuous drawing
+        self.oldx = event.x
+        self.oldy = event.y
+
+
+    def reset(self, event):
+        self.oldx, self.oldy= None, None
+
+if __name__ == "__main__":
+    PAINTT()
+
