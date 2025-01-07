@@ -42,7 +42,7 @@ class PAINTT(object):
 
     def usePen(self):
         #Activate the pen tool
-        self.activebutton(self.pen)
+        self.activebutton(self.pen, eraser_mode= False)
 
     def useBrush(self): 
         self.activebutton(self.brush)
@@ -62,7 +62,7 @@ class PAINTT(object):
 
     def paint(self, event): #Drawing on the Canvas based on mouse movement
         self.line_width = self.slider.get()
-        paint_color = "white" if self.eraseron else self.color
+        paint_color = self.canvas["bg"] if self.eraseron else self.color
         if self.oldx and self.oldy:
             self.canvas.create_line(self.oldx, self.oldy, event.x, event.y, width=self.line_width, fill = paint_color
             , capstyle=ROUND, smooth = TRUE, splinesteps = 40)
