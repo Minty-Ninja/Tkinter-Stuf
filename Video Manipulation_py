@@ -1,0 +1,19 @@
+import cv2
+
+x = cv2.VideoCapture("cars.mp4")
+
+
+while True: 
+    ret, frame = x.read()
+    font1 = cv2.FONT_HERSHEY_COMPLEX_SMALL
+
+    #Putting text on vid
+    cv2.putText(frame, "whdjkcqawlefhqwrkgfhwkea", (50,50), font1, 1, (255, 0, 0), 2, cv2.LINE_4)
+    cv2.imshow("Video", frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):  
+        break
+
+x.release()
+cv2.destroyAllWindows()
+
+
